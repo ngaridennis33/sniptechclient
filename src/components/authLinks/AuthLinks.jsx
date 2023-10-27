@@ -13,13 +13,12 @@ const AuthLinks = ({openModal}) => {
 
     // Check User login status
     const {data,status} = useSession()
-    console.log(status)
 
   return(
   <div className={styles.authStatusCont}>
     {status === "authenticated" ? (
     <div className={styles.authCont}>
-        <a href = "/write" className={styles.write}>Write</a> 
+        {/* <Link href = "/write" className={styles.write}>Write</Link>  */}
         <span className={styles.logout} onClick={signOut}>Logout</span>
     </div>
     ): (
