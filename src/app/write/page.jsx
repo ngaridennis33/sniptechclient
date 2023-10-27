@@ -87,9 +87,9 @@ const WritePage = () => {
     );
   }
 
-  if (status === 'unauthenticated') {
-    return router.push('/');
-  }
+  // if (status === 'unauthenticated') {
+  //   return router.push('/');
+  // }
 
   const modules = {
     toolbar: [
