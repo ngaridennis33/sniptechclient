@@ -19,6 +19,8 @@ import Comments from '@/components/comments/Comments';
 
 
 const SinglePage = async ({ params }) => {
+
+
     const {slug} = params;
     const data = await getData(slug);
   return (

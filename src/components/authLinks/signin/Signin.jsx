@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 import styles from "./signin.module.scss"
 import Image from 'next/image'
-import { ThemeContext } from '../../context/ThemeContext'
+import { ThemeContext } from '../../../components/context/ThemeContext'
 import LogoImg from "/public/sniptech-logos_transparent.png"
 import { signIn, useSession } from 'next-auth/react'
 import Spinner from '@/components/spinner/spinner'

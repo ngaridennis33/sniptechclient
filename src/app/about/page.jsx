@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './page.module.css'
-import Spinner from '@/components/spinner/spinner';
+import Spinner from '@/components /spinner/spinner';
 
 
 export const metadata = {
