@@ -1,64 +1,275 @@
+// "use client"
+// import React, { useEffect, useState } from 'react'
+// import styles from "./page.module.scss";
+// // import "react-quill/dist/quill.bubble.css";
+// import Image from 'next/image';
+// import { useSession } from 'next-auth/react';
+// // import ReactQuill from 'react-quill';
+// import 'react-quill/dist/quill.snow.css';
+// import { useRouter } from 'next/navigation';
+// import Spinner from '@/components/spinner/spinner';
+// import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+// import { app } from '@/utils/firebase';
+
+// import dynamic from 'next/dynamic'
+// import parse from 'html-react-parser';
+
+//     const QuillNoSSRWrapper = dynamic(import('react-quill'), {
+//       ssr: false,
+//       loading: () => <p>Loading ...</p>,
+//     })
+
+
+//     const modules = {
+//       toolbar: [
+//         [{ header: '1' }, { header: '2' }, { font: [] }],
+//         [{ size: [] }],
+//         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+//         [
+//           { list: 'ordered' },
+//           { list: 'bullet' },
+//           { indent: '-1' },
+//           { indent: '+1' },
+//         ],
+//         ['link', 'image', 'video'],
+//         ['clean'],
+//       ],
+//       clipboard: {
+//         // toggle to add extra line breaks when pasting HTML:
+//         matchVisual: false,
+//       },
+//     }
+//     /*
+//      * Quill editor formats
+//      * See https://quilljs.com/docs/formats/
+//      */
+//     const formats = [
+//       'header',
+//       'font',
+//       'size',
+//       'bold',
+//       'italic',
+//       'underline',
+//       'strike',
+//       'blockquote',
+//       'list',
+//       'bullet',
+//       'indent',
+//       'link',
+//       'image',
+//       'video',
+//     ]
+
+
+// const storage = getStorage(app);
+
+// const WritePage = () => {
+//     // Router to redirect
+//     const router = useRouter();
+//     const {status} = useSession()
+
+  
+//     const [open,setOpen] = useState(false);
+//   const [file, setFile] = useState(null);
+//   const [media, setMedia] = useState("");
+//   const [title, setTitle] = useState("");
+//   const [value,setValue] = useState("");
+//   const [catSlug,setCatSlug] = useState("");
+
+//   // Transform the title into a slug
+//   const slugify = (str) => {
+//     return str
+//       .toLowerCase()
+//       .trim()
+//       .replace(/[^a-z0-9 -]/g, '')   // Remove characters that are not alphanumeric, hyphens, or spaces
+//       .replace(/\s+/g, '-')          // Replace spaces with hyphens
+//       .replace(/-+/g, '-');          // Replace multiple hyphens with a single hyphen
+//   };
+//   const handleSubmit = async()=>{
+//     const res = await fetch("/api/posts",{
+//       method:"POST",
+//       body: JSON.stringify({
+//         title,
+//         desc:value,
+//         img:media,
+//         slug:slugify(title),
+//         catSlug:catSlug,
+//       })
+//     })
+
+//     console.log(res)
+//   }
+
+//   useEffect(()=>{
+//     const upload=()=>{
+//       const name = new Date().getTime + file.name
+//     const storageRef = ref(storage, name);
+
+//     const uploadTask = uploadBytesResumable(storageRef, file);
+
+//     uploadTask.on('state_changed', 
+//       (snapshot) => {
+//         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+//         console.log('Upload is ' + progress + '% done');
+//         switch (snapshot.state) {
+//           case 'paused':
+//             console.log('Upload is paused');
+//             break;
+//           case 'running':
+//             console.log('Upload is running');
+//             break;
+//         }
+//       }, 
+//       (error) => {
+//       }, 
+//       () => {
+//         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+//           setMedia(downloadURL);
+//         });
+//       }
+//     );
+
+//         };
+
+//     file && upload();
+//   },[file])
+
+//   if(status === "loading"){
+//     return (
+//     <div className={styles.loading}><Spinner/></div>
+//     )
+//   };
+
+//   if(status === "unauthenticated"){
+//     return (
+//     router.push("/")
+//     )
+//   };
+
+
+//   return (
+//     <div className={styles.container}>
+//        <input
+//         type="text"
+//         placeholder="Title"
+//         className={styles.input}
+//         onChange={(e) => setTitle(e.target.value)}
+//       />
+//       <select className={styles.select} onChange={(e) => setCatSlug(e.target.value)}>
+//         <option value="style">tech</option>
+//         <option value="fashion">fashion</option>
+//         <option value="food">finance</option>
+//         <option value="culture">travel</option>
+//         <option value="travel">sports</option>
+//         <option value="coding">art</option>
+//       </select>
+
+//         <div className={styles.editor}>
+//             <button className={styles.button} onClick={()=> setOpen(!open)}>
+//                 <Image src = "/plus.svg" width={16} height={16} alt ="" />
+//             </button>
+//             {open && (
+//                 <div className={styles.add}>
+//                   <input type="file" id="image" onChange={(e)=> setFile(e.target.files[0])} style={{display:"none"}} />
+//                     <button className={styles.addButton}>
+//                     <label htmlFor="image">
+//                         <Image src = "/images.svg" width={25} height={25} alt ="" className={styles.icon} />
+//                     </label>
+//                         <span className={styles.tooltip}>Images</span>
+//                     </button>
+//                     <button className={styles.addButton}>
+//                         <Image src = "/new-tab.svg" width={25} height={25} alt ="" className={styles.icon}/>
+//                         <span className={styles.tooltip}>New tab</span>
+
+//                     </button>
+//                     <button className={styles.addButton}>
+//                         <Image src = "/play.svg" width={25} height={25} alt ="" className={styles.icon}/>
+//                         <span className={styles.tooltip}>Video</span>
+
+//                     </button>
+//                 </div>
+//             )}
+//             {/* <ReactQuill className={styles.textArea} theme="bubble" value={value} onChange={setValue} placeholder="Tell your story" /> */}
+//             <QuillNoSSRWrapper className={styles.textArea}  modules={modules} placeholder='compose here' value={value} onChange={setValue} formats={formats} theme="snow"  />
+
+// ``<p>{value}</p>
+//     {parse(value)}
+
+//         </div>
+
+//         <button className={styles.publish} onClick={handleSubmit}>Publish</button>
+//     </div>
+//   )
+// }
+
+// export default WritePage
+
 "use client"
-import React, { useEffect, useState } from 'react'
-import styles from "./page.module.scss";
-import "react-quill/dist/quill.bubble.css";
+import React, { useEffect, useState } from 'react';
+import styles from './page.module.scss';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
-import ReactQuill from 'react-quill';
 import { useRouter } from 'next/navigation';
 import Spinner from '@/components/spinner/spinner';
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { app } from '@/utils/firebase';
+import dynamic from 'next/dynamic';
+import parse from 'html-react-parser';
+
+// Import react-quill styles
+import 'react-quill/dist/quill.snow.css';
+
+// Dynamic import of Quill to avoid SSR issues
+const QuillNoSSRWrapper = dynamic(() => import('react-quill'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
 
 const storage = getStorage(app);
 
-
 const WritePage = () => {
-    // Router to redirect
-    const router = useRouter();
-    const {status} = useSession()
+  const router = useRouter();
+  const { status } = useSession();
 
-  
-    const [open,setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
-  const [media, setMedia] = useState("");
-  const [title, setTitle] = useState("");
-  const [value,setValue] = useState("");
-  const [catSlug,setCatSlug] = useState("");
+  const [media, setMedia] = useState('');
+  const [title, setTitle] = useState('');
+  const [value, setValue] = useState('');
+  const [catSlug, setCatSlug] = useState('');
 
-  // Transform the title into a slug
   const slugify = (str) => {
     return str
       .toLowerCase()
       .trim()
-      .replace(/[^a-z0-9 -]/g, '')   // Remove characters that are not alphanumeric, hyphens, or spaces
-      .replace(/\s+/g, '-')          // Replace spaces with hyphens
-      .replace(/-+/g, '-');          // Replace multiple hyphens with a single hyphen
+      .replace(/[^a-z0-9 -]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-');
   };
-  const handleSubmit = async()=>{
-    const res = await fetch("/api/posts",{
-      method:"POST",
+
+  const handleSubmit = async () => {
+    const res = await fetch('/api/posts', {
+      method: 'POST',
       body: JSON.stringify({
         title,
-        desc:value,
-        img:media,
-        slug:slugify(title),
-        catSlug:catSlug,
-      })
-    })
+        desc: value,
+        img: media,
+        slug: slugify(title),
+        catSlug: catSlug,
+      }),
+    });
 
-    console.log(res)
-  }
+    console.log(res);
+  };
 
-  useEffect(()=>{
-    const upload=()=>{
-      const name = new Date().getTime + file.name
-    const storageRef = ref(storage, name);
+  useEffect(() => {
+    const upload = () => {
+      const name = new Date().getTime() + file.name;
+      const storageRef = ref(storage, name);
 
-    const uploadTask = uploadBytesResumable(storageRef, file);
+      const uploadTask = uploadBytesResumable(storageRef, file);
 
-    uploadTask.on('state_changed', 
-      (snapshot) => {
+      uploadTask.on('state_changed', (snapshot) => {
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log('Upload is ' + progress + '% done');
         switch (snapshot.state) {
@@ -69,37 +280,58 @@ const WritePage = () => {
             console.log('Upload is running');
             break;
         }
-      }, 
-      (error) => {
-      }, 
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          setMedia(downloadURL);
-        });
-      }
-    );
-
-        };
+      });
+    };
 
     file && upload();
-  },[file])
+  }, [file]);
 
-  if(status === "loading"){
+  if (status === 'loading') {
     return (
-    <div className={styles.loading}><Spinner/></div>
-    )
+      <div className={styles.loading}>
+        <Spinner />
+      </div>
+    );
+  }
+
+  if (status === 'unauthenticated') {
+    return router.push('/');
+  }
+
+  const modules = {
+    toolbar: [
+      [{ header: '1' }, { header: '2' }, { font: [] }],
+      [{ size: [] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
+      ['link', 'image', 'video'],
+      ['clean'],
+    ],
+    clipboard: {
+      matchVisual: false,
+    },
   };
 
-  if(status === "unauthenticated"){
-    return (
-    router.push("/")
-    )
-  };
-
+  const formats = [
+    'header',
+    'font',
+    'size',
+    'bold',
+    'italic',
+    'underline',
+    'strike',
+    'blockquote',
+    'list',
+    'bullet',
+    'indent',
+    'link',
+    'image',
+    'video',
+  ];
 
   return (
     <div className={styles.container}>
-       <input
+      <input
         type="text"
         placeholder="Title"
         className={styles.input}
@@ -114,37 +346,44 @@ const WritePage = () => {
         <option value="coding">art</option>
       </select>
 
-        <div className={styles.editor}>
-            <button className={styles.button} onClick={()=> setOpen(!open)}>
-                <Image src = "/plus.svg" width={16} height={16} alt ="" />
+      <div className={styles.editor}>
+        <button className={styles.button} onClick={() => setOpen(!open)}>
+          <Image src="/plus.svg" width={16} height={16} alt="" />
+        </button>
+        {open && (
+          <div className={styles.add}>
+            <input type="file" id="image" onChange={(e) => setFile(e.target.files[0])} style={{ display: 'none' }} />
+            <button className={styles.addButton}>
+              <label htmlFor="image">
+                <Image src="/images.svg" width={25} height={25} alt="" className={styles.icon} />
+              </label>
+              <span className={styles.tooltip}>Images</span>
             </button>
-            {open && (
-                <div className={styles.add}>
-                  <input type="file" id="image" onChange={(e)=> setFile(e.target.files[0])} style={{display:"none"}} />
-                    <button className={styles.addButton}>
-                    <label htmlFor="image">
-                        <Image src = "/images.svg" width={25} height={25} alt ="" className={styles.icon} />
-                    </label>
-                        <span className={styles.tooltip}>Images</span>
-                    </button>
-                    <button className={styles.addButton}>
-                        <Image src = "/new-tab.svg" width={25} height={25} alt ="" className={styles.icon}/>
-                        <span className={styles.tooltip}>New tab</span>
-
-                    </button>
-                    <button className={styles.addButton}>
-                        <Image src = "/play.svg" width={25} height={25} alt ="" className={styles.icon}/>
-                        <span className={styles.tooltip}>Video</span>
-
-                    </button>
-                </div>
-            )}
-            {/* <ReactQuill className={styles.textArea} theme="bubble" value={value} onChange={setValue} placeholder="Tell your story" /> */}
-        </div>
-
-        <button className={styles.publish} onClick={handleSubmit}>Publish</button>
+            <button className={styles.addButton}>
+              <Image src="/new-tab.svg" width={25} height={25} alt="" className={styles.icon} />
+              <span className={styles.tooltip}>New tab</span>
+            </button>
+            <button className={styles.addButton}>
+              <Image src="/play.svg" width={25} height={25} alt="" className={styles.icon} />
+              <span className={styles.tooltip}>Video</span>
+            </button>
+          </div>
+        )}
+        <QuillNoSSRWrapper
+          className={styles.textArea}
+          modules={modules}
+          placeholder="Compose here"
+          value={value}
+          onChange={setValue}
+          formats={formats}
+          theme="snow"
+        />
+      </div>
+      <button className={styles.publish} onClick={handleSubmit}>
+        Publish
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default WritePage
+export default WritePage;
