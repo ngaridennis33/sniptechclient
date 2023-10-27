@@ -1,0 +1,95 @@
+// Breakpoints 
+
+/*
+MEDIA QUERRY MANAGER
+0 - 600px: Phones
+600px - 900px: Tablets  
+900px - 1200px: Laptops 
+1200 - 1800px: Desktop(Where our styles apply)
+1800+ - Big desktops 
+
+Breakpoint argument choices
+    phones - $sm
+    Tablets - $md
+    Laptops - $lg
+    Desktop - $xl
+    BigDesktop - $xxl
+
+ Note that 1 em = 16px
+ We use ems instead of rems because rems are affectd by the width of the browser.
+
+*/
+
+$sm: 37.5em;    //600px
+$md: 56.25em;   //900px
+$lg: 75em;      //1200px
+$xl: 112.5em;   //1800px
+$xxl: 120.5em;  //+1920px
+
+
+@mixin respond($breakpoint){
+    @if $breakpoint == phone{
+        @media screen and (max-width: ($sm)){
+            @content;
+        }
+    }
+    @if $breakpoint == tablet{
+        @media screen and (max-width: ($md)){
+            @content;
+        }
+    }
+    @if $breakpoint == laptop{
+        @media screen and (max-width: ($lg)){
+            @content;
+        }
+    }
+    @if $breakpoint == desktop{
+        @media screen and (max-width: ($xl)){
+            @content;
+        }
+    }
+    @if $breakpoint == bigDesktop{
+        @media screen and (min-width: ($xxl)){
+            @content;
+        }
+    }
+}
+
+
+@mixin sm{
+    @media screen and (max-width: ($sm)){
+        @content;
+    }
+}
+
+@mixin md{
+    @media screen and (max-width: ($md)){
+        @content;
+    }
+}
+
+@mixin lg{
+    @media screen and (max-width: ($lg)){
+        @content;
+    }
+}
+
+@mixin xl{
+    @media screen and (max-width: ($xl)){
+        @content;
+    }
+}
+
+@mixin xxl{
+    @media screen and (min-width: ($xxl)){
+        @content;
+    }
+}
+
+// PADDING 
+$padding-sm: 1rem;
+$padding-md: 2rem;
+$padding-lg: 5rem;
+$padding-xl: 7rem;
+$padding-xxl: 10rem;
+

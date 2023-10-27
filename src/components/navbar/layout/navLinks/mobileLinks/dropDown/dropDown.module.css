@@ -1,0 +1,35 @@
+.dropdownContainer{
+    white-space: nowrap;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.treeItemContainer{
+    text-align: left;
+    padding: 0 10px;
+}
+
+.navMenuItem{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    border-left: 2px solid transparent;
+}
+.navMenuItem:hover{
+    border-left: 2px solid;
+    color: #038003;
+}
+
+.treeChildContainer{
+margin-top: 10px;
+padding-left: 10px;
+border-radius: 5px;
+}
+
+.dropdownLabel{
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}

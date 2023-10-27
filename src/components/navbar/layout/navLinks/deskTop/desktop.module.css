@@ -1,0 +1,112 @@
+.navMenu{
+    width: 100%;
+    height: 100%;
+}
+
+.navMenuList{
+    width: 100%; 
+    height: 100%;
+    list-style: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    gap:2rem;
+}
+
+.navMenuItemLink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    font-weight: 300;
+}
+.dropDownCont{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.dropMenu{
+    background-color: #ffff;
+    opacity: 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    visibility: hidden;
+    line-height: 16px;;
+    min-width: 10rem ;
+    top: 15vh;
+    position: absolute;
+    transition: .3s ease;
+    z-index: 999;
+}
+
+.dropMenuItem{
+    padding: 10px 20px;
+    line-height: 1.6;
+    width: 100%;
+    list-style: none;
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+    color:black;
+}
+.dropMenuItem:not(:last-child){
+    border-bottom: .1rem solid #e0dcd1;
+}
+.dropMenuItem:hover{
+    text-decoration: underline;
+    background-color: #ECECEC;
+    color:#038003;
+}
+
+.dropMenuItemLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navMenuItem{
+    box-sizing: border-box;
+    height: 100%;
+    cursor: pointer;
+    border-bottom: .3rem solid transparent;
+    transition: .3s ease;
+    font-size: 1.5rem;
+}
+
+.navMenuItem:hover{
+    color:#038003;
+    border-bottom: .3rem solid #038003;
+}
+
+.navMenuItem.dark{
+    color: #ffff;
+}
+
+.navMenuItem.dark:hover{
+    color: #038003;
+}
+
+.navMenuItem:hover .dropMenu{
+    top: 100px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.navMenuItem:hover .dropDownIcon{
+    transform: rotate(180deg);
+}
+
+@media only screen and (max-width:1080px){
+    .navMenuList{
+        justify-content: center;
+    }
+
+}

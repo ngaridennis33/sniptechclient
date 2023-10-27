@@ -1,0 +1,18 @@
+.logoImageContainer{
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    /* background-color: red; */
+}
+
+.logoImage{
+    width: 100px;
+    object-fit: cover;
+    height: 100%; 
+}
+
+

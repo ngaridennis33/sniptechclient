@@ -1,0 +1,128 @@
+@import "../../styles/variables.scss";
+@import "../../styles/responsive.scss";
+
+.container{
+    border: 1px solid $color-grey-light-2;
+        padding: 10px;
+        border-radius: 10px;
+
+    .title{
+        margin-bottom: 2rem;
+        font-size: 3.2rem;
+        color: $color-white;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 12px 25px 10px 25px;
+        position: relative;
+        display: inline-block;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        background: $color-icons-7;
+        border-radius: 3px 3px 0 0 ;
+
+        &::after{
+            content: "";
+            height: 1px;
+            width: 1px;
+            border-style: solid;
+            border-width: 5px;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            border-color: $color-icons-8 $color-icons-8 transparent transparent;
+        }
+    }
+
+    .categories{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+
+        .category{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            width: 15%;
+            gap: 10px;
+            min-height: 12rem;
+            box-sizing: border-box;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: .3s ease;
+            
+
+
+            @include respond(laptop){ 
+                width: 20%;
+            }
+            
+            @include respond(tablet){ 
+                width: 25%;
+            }
+
+            @include respond(phone){ 
+                width: 100%;
+            }
+
+            &.travel{
+                background-color: $color-tertiary-10;
+            }
+
+            &.tech{
+                background-color: $color-tertiary-9;
+            }
+            &.fashion{
+                background-color: $color-tertiary-10;
+            }
+            &.finance{
+                background-color:$color-tertiary-11 ;
+            }
+            &.sports{
+                background-color:$color-tertiary-12 ;
+            }
+            &.art{
+                background-color:$color-tertiary-13 ;
+            }
+
+            .left{
+                flex: 2;
+                height: 100%;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                .subTitle{
+                    text-transform: uppercase;
+                    font-size: 18px;
+                    color: $color-black;
+                    font-weight: 500;
+                }
+                .desc{
+                    font-size: 12px;
+                    color: grey;
+                }
+            }
+
+            .right{
+                flex: 1;
+                .img{
+                    width: 50px;
+                    height: 50px;
+                    transition: .3s ease;
+
+
+                }
+
+            }
+
+            &:hover .right .img{
+                transform: scale(1.3);
+            }
+
+        }
+    }
+}

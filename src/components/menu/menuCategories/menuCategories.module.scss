@@ -1,0 +1,38 @@
+@import "../../../styles/variables.scss";
+
+.categoryList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+    border-bottom: 1px solid $color-grey-light-2;
+
+    .categoryItem{
+        padding: 10px 25px;
+        border-radius: 10px;
+        font-size: 14px;
+        color: #fff;
+        font-weight: 500;
+
+        &.travel{
+            background-color: $color-icons-5;
+        }
+
+        &.tech{
+            background-color: $color-icons-2;
+        }
+        &.fashion{
+            background-color: $color-icons-4;
+        }
+        &.finance{
+            background-color:$color-icons-3;
+        }
+        &.sports{
+            background-color:$color-icons-6;
+        }
+        &.art{
+            background-color:$color-icons-1;
+        }
+    }
+
+}

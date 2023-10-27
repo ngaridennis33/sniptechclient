@@ -1,0 +1,23 @@
+@import "../../styles/button.scss";
+
+.container{
+    width: max-content;
+    margin: 0 auto;
+
+    .confirmMessage{
+        .trash{
+            height: 50px;
+            width: 50px;
+            color: $color-tertiary-3;
+        }
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    .deleteButtons{
+    text-align: center;
+
+    }
+}

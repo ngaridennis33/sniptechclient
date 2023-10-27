@@ -1,0 +1,75 @@
+@import "../../../../styles/variables.scss";
+@import "../../../../styles/animation.scss";
+@import "../../../../styles/responsive.scss";
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+
+    .inputLabel{
+        font-size: 16px;
+        font-weight: bold;
+
+        &.dark{
+            color: $color-white;
+        }
+    }
+
+    .input{
+        background-color: inherit;
+        cursor: pointer;
+        width: 100%;
+        border:none;
+        outline: none;
+        display: flex;
+        padding: 15px;
+        margin: 5px 0;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid $color-grey-light-1;
+
+        &::placeholder{
+            color: $color-grey-light-1;
+        }
+
+        &.dark{
+            color: $color-white;
+        }
+
+        &.dark:not(:placeholder-shown,:focus){
+            background-color: inherit;
+        }
+
+        &:focus{
+                    border: 1px solid $color-tertiary-5;
+        }
+
+        &:invalid[list = "true"] ~ .errorMessage{
+            display: block;
+        }
+
+        &:invalid[list = "true"]{
+            border-color: $color-tertiary-3;
+        }
+
+        &:not(:placeholder-shown,:focus):invalid {
+            border-color: $color-tertiary-3;
+            -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+            animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+        }
+
+
+
+    }
+    .errorMessage{
+        width: 400px;
+        font-size: 12px;
+        padding: 3px;
+        color: $color-red;
+        display: none;
+    }
+}
+
+

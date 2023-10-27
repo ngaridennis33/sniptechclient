@@ -1,0 +1,157 @@
+@import "../../styles/responsive.scss";
+@import "../../styles/variables.scss";
+
+
+.navWrapper{
+    position: fixed;
+    line-height: 1.6;
+    height: 100px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: $color-primary-light;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $color-grey-light-2;
+
+    &.dark{
+        background-color: $color-secondary-dark;
+    }
+
+    .container{
+        height: 60px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: .3s ease;
+        padding: 0 20rem ;
+        
+        @include respond(laptop){
+            padding: 0 10rem;
+          }
+    
+        @include respond(tablet){
+            height: 100px;
+            padding:0 1rem;
+        }    
+    }
+
+    .left{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        height: 100%;
+        position: relative;
+        @include respond(tablet){
+            width: 50%;
+        }
+
+        .logoLink{
+            height: 100%;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $color-primary-light;
+            position: absolute;
+            top: -30px;
+            border-radius: 15px;
+            -webkit-box-shadow: 0px 0px 11px -4px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 11px -4px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 11px -4px rgba(0,0,0,0.75); 
+        
+            @include respond(tablet){
+                box-shadow: none;
+                top: 0;
+                left: 0;
+                background-color: transparent;
+            }
+        }
+    }
+
+    .center{
+        width: 60%;
+        height: 100%;
+
+        @include respond(tablet){
+            display: none;
+        }
+    }
+
+    .cta{
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+
+        @include respond(tablet){
+            display: none;
+        }
+    }
+
+    .mobileHamburgerCotainer{
+        height: 50px;
+        display: none;
+
+        @include respond(tablet){
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 50%;
+            height: 100%;
+            z-index: 1000;
+        }
+    }
+}
+
+
+
+.mobileLinks{
+    display: none;
+}
+
+@include respond(tablet){
+    .mobileLinks{
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        max-width: 350px;
+        background: #FFFFFF;
+        display: inline-block;
+        top: 0;
+        right: 0;
+        overflow-y: auto;
+        line-height: 50px;
+        padding: 50px 10px;
+        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.972);
+        transform: translateX(100%);
+        z-index: 2000;
+        transition: .15s ease-in;
+        opacity: 1;
+
+        &.dark{
+            background: $color-secondary-dark;
+            box-shadow: $color-box-shadow-light;
+        }
+
+        &.showMenu{
+            transform: translateX(0%);
+        }
+
+        &::-webkit-scrollbar{
+            width: 0;
+        };
+
+        .mobileAuth{
+            margin: 10px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+}

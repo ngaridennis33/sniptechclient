@@ -1,0 +1,110 @@
+@import "./variables.scss";
+
+.utilsBtn{
+    padding: 16px 20px;
+    cursor: pointer;
+    border: none;
+    color: $color-white;
+    border-radius: .5rem;
+    min-width: 10rem;
+    width: max-content;
+    font-size: 1.4rem;
+    transition: .3s ease;
+    &:disabled{
+        opacity: .8;
+        cursor: not-allowed;
+    }
+    
+&:hover{
+        transform: scale(.98);  
+    }
+}
+
+.preBtn{
+    @extend .utilsBtn;
+    background-color: $color-tertiary-3;
+    &:before{
+        content:"\2039";
+        margin-right: 10px;
+        font-size: 1.6rem;
+    }
+    
+}
+
+.nxtBtn{ 
+    @extend .utilsBtn;     
+    background-color: $color-tertiary-3;
+    &:after{
+        content:"\203A";
+        margin-left: 10px;
+        font-size: 1.6rem;
+    }
+}
+
+.authLink{
+    display: flex;
+
+        .ctaButton{
+            @extend .utilsBtn;
+            background-color: $color-tertiary-1;
+        }
+
+
+
+        .readmoreLink{
+            color: inherit;
+            font-size: 1.4rem;
+            outline: none;
+            border: none;
+            background-color: inherit;
+            border-bottom: .1rem solid crimson;
+            width: max-content;
+            padding: .2rem 0rem;
+            cursor: pointer;
+            transition: .3s ease;
+            &:hover{
+                color: $color-tertiary-1;
+                border-bottom:.1rem solid $color-tertiary-1; 
+            }
+        }
+
+}
+
+.action{
+    @extend .utilsBtn;
+    background-color: $color-tertiary-7;
+}
+
+.authButton{
+    padding: 5px 16px;
+    font-size: 1.6rem;
+    background-color: inherit;
+    color: $color-tertiary-4;
+    font-weight: 500;
+    line-height: 24px;
+    border: none;
+    border: .1rem solid $color-tertiary-4;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .3s ease;
+    &:hover{
+        transform: scale(.98);
+        border: .1rem solid $color-tertiary-5;
+        color:$color-tertiary-5;
+        
+    }
+}
+
+.deleteButtons{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .cancelButton{
+        @extend .utilsBtn;
+        background-color: $color-tertiary-4;
+    }
+    .confirmButton{
+        @extend .utilsBtn;
+        background-color: $color-tertiary-3;
+    }
+}

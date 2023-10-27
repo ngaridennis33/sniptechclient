@@ -1,0 +1,26 @@
+@import "../../styles/variables.scss";
+
+
+.container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .loading {
+    width: 30px;
+    height: 30px;
+    border: 5px solid $color-grey-light-2;
+    border-radius: 50%;
+    border-top-color: $color-tertiary-3;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+  }
+}
+  
+  @keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }

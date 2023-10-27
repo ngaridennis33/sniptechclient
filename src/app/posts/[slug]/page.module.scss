@@ -1,0 +1,105 @@
+@import "../../../styles/responsive.scss";
+@import "../../../styles/variables.scss";
+
+.wrapper{
+    box-sizing: border-box;
+    display: flex;
+    gap: 20px;
+
+
+    .container{
+    flex: 5;
+    border: 1px $color-grey-light-2 solid;
+    border-radius: 10px;
+    position: relative;
+    position: sticky;
+    top: 0; 
+    right: 0; 
+    height: max-content;
+
+    .infoContainer{
+        display: flex;
+
+        .textContainer{
+            flex: 1;
+            padding: 10px;
+
+            .title{
+                text-transform: capitalize;
+                font-size: 6.4rem;
+                margin-bottom: 5rem;
+
+                @include respond(laptop){
+                    font-size: 5.4rem; 
+                  }
+
+                  @include respond(tablet){
+                    font-size: 4rem; 
+                  }
+            }
+
+            .user{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                .userImageContainer{
+                    height: 50px;
+                    width: 50px;
+                    position: relative;
+
+                    .avatar{
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+
+                .userTextContainer{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    color: $color-grey-light-1;
+                    font-style: italic;
+                }
+            }
+        }
+
+        .imageContainer{
+            flex: 1;
+            height: 35rem;
+            position: relative;
+
+            @include respond(tablet){ //width < 900px
+                display: none; //1rem = 8px, 8/16 = 50%
+              }
+
+            .image{
+                top: 0;
+                border-radius: 0 10px 0 0;
+                object-fit:scale-down;
+            }
+        }
+    }
+
+    .content{
+        padding: 10px;
+
+        .post{
+            margin-top: 60px;
+
+            .description{
+                font-size: 2rem;
+                font-weight: 300;
+                margin-bottom: 20px;
+                &::first-letter{
+                    font-size: 2em;
+                    font-weight: bold;
+                    margin-right: 4px;
+                    line-height: 1.3;
+                }
+                
+            }
+        }
+    }
+}
+}

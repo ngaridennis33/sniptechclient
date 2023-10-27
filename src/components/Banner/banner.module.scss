@@ -1,0 +1,103 @@
+@import "../../styles/responsive.scss";
+@import "../../styles/button.scss";
+@import "../../styles/variables.scss";
+
+.wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 80%;
+    background-color: $color-secondary-dark-softBg;
+    background-image: url("../../../public/home/bannerBg.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+    border-radius: 0px 0px 200px 0px;
+    padding:$padding-xxl;
+    @include respond(desktop){
+        padding:$padding-xl;
+      }
+    
+      @include respond(laptop){
+        padding: $padding-lg;
+      }
+    
+      @include respond(tablet){
+        padding:$padding-md
+      }
+    
+      @include respond(phone){
+        padding:$padding-sm
+      }
+
+.container{
+    color: $color-white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .textBox{
+        flex: 1;
+        height: 100%;
+        width: 50%;
+        display: flex;
+        font-display: column;
+        align-items: center;
+        justify-content: center;
+        @include respond(tablet){
+            width: 100%;
+            text-align: center;
+        }
+        .heading{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            @include respond(tablet){
+                align-items: center;
+            }
+
+            .title{
+                font-weight: 500;
+                    font-size: clamp(5rem, 7vw + 1rem, 7.8rem);
+            }
+            .desc{
+                font-size: 1.9rem;
+                font-weight: 300;
+            }
+        }
+
+    }
+    .imageBox{
+        flex: 1;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.imageBox{
+            width: 300px;
+            height:600px;
+            position: relative;
+            @include respond(laptop){
+                height: 500px;
+            }
+            @include respond(tablet){
+                display: none;
+                height: 500px;
+            }
+
+            .img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                background-position: bottom left;
+                
+              
+            }
+        }
+    }
+}
+}

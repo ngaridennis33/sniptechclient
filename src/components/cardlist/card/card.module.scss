@@ -1,0 +1,90 @@
+@import "../../../styles//responsive.scss";
+@import "../../../styles/button.scss";
+@import "../../../styles/variables.scss";
+
+.wrapper{
+        border-top: 1px solid $color-grey-light-2;
+        .container{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            gap: 50px;
+            border-radius: 10px;
+        
+            .imageContainer{
+                flex: 1;
+                height: 250px;
+                position: relative;
+        
+                @include respond(tablet){ 
+                    display: none;
+                  }
+        
+                .image{
+                    border-radius: 10px;
+                    object-fit: cover;
+                }
+            }
+        
+            .textContainer{
+                flex: 2;
+                display: flex; 
+                flex-direction: column;
+                gap: 20px;
+        
+                .detail{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    .userImageContainer{
+                        height: 50px;
+                        width: 50px;
+                        position: relative;
+    
+                        .avatar{
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .userTextContainer{
+                    display: flex;
+                    gap: 5px;
+                    }
+                    .date{
+                        color: $color-grey-light-1;
+                        font-style: italic;
+                    }
+        
+                    .category{
+                        color: $color-tertiary-3;
+                        font-weight: bold;
+                        text-transform: capitalize;
+                        border-radius: 10px;
+                        width: max-content;
+                        padding: 10px;
+                        background-color:$color-grey-light-2 ;
+                    }
+                }
+                .title{
+                    font-size: 2.2rem;
+                    font-weight: bold;
+                    &:hover{
+                        text-decoration: underline;
+                        color: $color-tertiary-1;
+                    }
+                }
+        
+                .desc{
+                    font-size: 18px;
+                    font-weight: 300;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4; /* Number of lines before adding ellipsis */
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+        
+            }
+        }
+}

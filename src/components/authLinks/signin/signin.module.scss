@@ -1,0 +1,204 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/responsive.scss";
+@import "../../../styles/button.scss";
+@import "../../../styles/animation.scss";
+
+
+.container{
+    display: flex;
+    min-width: 100%;
+    height: max-content;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0 auto;
+    padding: 0px 50px;
+    border-radius: 10px;
+
+    @include respond(tablet){
+        padding:0;
+      }
+
+    .header{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .logo{
+            height:100px;
+            width: 80%;
+            position: relative;
+            .logoImage{
+                object-fit: cover;
+            }
+        }
+    }
+
+    .form{
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+    
+        .inputCont{
+            position: relative;
+            width: 100%;
+            height: 50px;
+            border-radius: 5px;
+        
+            .input{
+                border: none;
+                width: 100%;
+                height:50px;
+                outline: none;
+                border: 1px solid $color-grey-light-1;
+                padding-left: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                font-size: 14px;
+
+                &.dark{
+                    color: $color-white;
+                }
+    
+                &:focus{
+                    border: 1px solid $color-tertiary-5;
+                    transition: all ease;
+                }
+    
+                &:is(:focus, :valid) + .inputLabel .inputLabelName{
+                    transform: translateY(-70%);
+                    font-size: 14px;
+                    font-weight:500;
+                    color: $color-tertiary-4;
+                    background-color: $color-white;
+                    padding: 5px;
+                    left: 5px;
+                }
+
+                &:is(:focus, :valid) + .inputLabel.dark .inputLabelName.dark{
+                    background-color: $color-secondary-dark-softBg;
+                }
+    
+                &:not(:placeholder-shown,:focus):invalid {
+                    border-color: $color-tertiary-3;
+                    -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+                    animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+                }
+    
+                &:not(:placeholder-shown,:focus):invalid + .inputLabel .inputLabelName{
+                    transform: translateY(-70%);
+                    font-size: 14px;
+                    font-weight:500;
+                    color: $color-red;
+                    background-color: $color-white;
+                    padding: 5px;
+                    left: 5px;
+                }
+
+                &:not(:placeholder-shown,:focus):invalid + .inputLabel.dark .inputLabelName.dark{
+                    background-color: $color-secondary-dark-softBg;
+                }
+            }
+    
+            .inputLabel{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                pointer-events: none;
+            
+                .inputLabelName{
+                    position: absolute;
+                    bottom: 10px;
+                    left: 8px;
+                    transition: all .3s ease;
+                    color: $color-grey-light-1;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .register{
+        display: flex;
+        gap: 10px;
+        color: $color-grey-light-1;
+    }
+
+    .orCont{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .hr{
+            width: 100%;
+            height: 5px;
+            border: 0;
+            border-top: 1px solid $color-grey-light-1;
+        }
+
+        .orText{
+            font-size: 14px;
+            color: $color-grey-light-1;
+            border-radius: 50%;
+            border:1px solid $color-grey-light-1;
+            padding: 5px;
+        }
+    }
+
+    .socialLogin{
+        border: .1rem solid $color-tertiary-4;
+        outline: none;
+        padding: 10px;
+        width: 100%;
+        min-height: 50px;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-grey-light-1;
+        gap: 20px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        transition: all 0.5s ease;
+
+        .socialText{
+            font-size: 1.6rem;
+        }
+
+        &:hover{
+            transform: scale(1.03);
+        }
+    }
+
+    .socialLogin.dark{
+        background-color: inherit;
+        &:hover{
+            color: $color-tertiary-5;
+        }
+    }
+}
+
+// .loading{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100vh;
+//     width: 100vw;
+//     background-color: $color-overlay;
+// }
+
+
+
+
+
+
+
+

@@ -1,0 +1,111 @@
+@import "../../styles/responsive.scss";
+@import "../../styles/variables.scss";
+
+.wrapper{
+    width: 100%;
+    margin-top: 5rem;
+    padding: 0 20rem;
+    background-color: $color-secondary-dark;
+    color: #fff;
+    overflow: hidden;
+
+    @include respond(laptop){ 
+        padding: 0 10rem;
+    }
+
+    @include respond(tablet){ 
+        padding: 0 5rem;
+    }
+
+    @include respond(phone){ 
+        padding: 0 2rem;
+    }
+
+    .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include respond(tablet){ 
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+        .info{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            
+            .logoContainer{
+                width: 30%;
+                height: 8rem;
+                position: relative;
+
+                @include respond(laptop){ 
+                    align-self: center; 
+                    width: 60%;
+                  }
+
+                .logo{
+                    object-fit: cover;
+                }
+            }
+
+            .desc{
+                font-size: 1.5rem;
+                font-weight: 300;
+            }
+
+            .social{
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+
+        }
+
+        .links{
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10rem;
+            
+            @include respond(laptop){
+                gap: 2rem;
+            }
+
+            @include respond(tablet){ 
+                width: 100%;
+                margin-top: 5rem;
+                justify-content: space-between;
+            }
+
+            @include respond(phone){ 
+                font-size: 1.4rem;
+            }
+
+            .list{
+                display: flex;
+                flex-direction: column;
+                font-weight: 300;
+                font-size: 1.4rem;
+                gap: 1rem;
+                color: $color-grey-light-1;
+
+                .listTitle{
+                    font-weight: bold;
+                    color: $color-white;
+                }
+
+            }
+        }
+    }
+
+    .copyRight{
+        text-align: center;
+        font-weight: 300;
+        font-size: 1.4rem;
+        color: $color-grey-light-2;
+    }
+}

@@ -1,0 +1,172 @@
+@import "../../../../styles/variables.scss";
+@import "../../../../styles/responsive.scss";
+
+.container{
+    height: 40px;
+    width: 100%;
+    // background-color: $color-grey-light-2;
+    background-color: #F4F8FB;
+    padding: 0 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+
+    .categories {
+        height: 100%;
+        position: relative;
+        display: inline-block;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        z-index: 1000;
+        cursor: pointer;
+        .title{
+            line-height: 1.6;
+            font-size: 1.6rem;
+            font-weight: 300;
+        }
+
+        .dropMenu{
+            border-top: 3px solid $color-tertiary-1;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 100px;
+            transform: translateX(-50%); 
+            left: 50%;
+            background-color: $color-primary-light;
+            box-shadow: $color-overlay 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            transition: .3s ease;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+                .dropMenuItem{
+                    min-width: 100%;
+                    width: max-content;
+                    line-height: 1.6;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    list-style: none;
+                    color:$color-black;
+
+                    .dropMenuItemLink{
+                        padding: 10px 20px;
+                        font-size: 2rem;
+                        font-weight: 300;
+                        display: flex;
+                        width: 100%;
+                        height: 100%;
+                        align-items: center;
+                        justify-content: space-evenly;
+                        gap: 10px;
+
+                        &:not(:last-child){
+                            border-bottom: .1rem solid #e0dcd1;
+                        }
+
+                        &:hover{
+                            background-color: $color-grey-light-2;
+                            color: $color-tertiary-1;
+                        }
+                    }
+                }
+
+
+        
+        }
+        &:hover .dropMenu{
+            top: 40px;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+
+    .searchBox{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 30px;
+        width: 300px;
+        position: relative;
+        .input{
+            height: 100%;
+            width: 100%;
+            border: none;
+            outline: none;
+            padding-left: 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            background-color: #fff;
+            -webkit-box-shadow: 0px 0px 11px -4px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 11px -4px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 11px -4px rgba(0,0,0,0.75); 
+
+            &:focus{
+                box-shadow: 0 0 5px rgb(20, 166, 244);
+            }
+        }
+
+        .iconContainer{
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .icon{
+                height: 100%;
+                padding: 5px;
+                width: 40px;
+                cursor: pointer;
+                border-radius: 0 5px 5px 0;
+                background-color: $color-grey-light-1;
+                box-sizing: border-box;
+                transition: .3s ease;
+                &:hover{
+                    background-color: $color-tertiary-1;
+                }
+            }
+
+        }
+
+    }
+
+    @include respond(laptop){
+        padding: 0 10rem;
+      }
+
+    @include respond(tablet){
+        height: 100px;
+        padding:0 1rem;
+    }
+
+    @include respond(tablet){
+        display: none;
+      }
+
+      .social{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1rem;
+        .icon{
+            cursor: pointer;
+            border-radius: 50%;
+            &:hover{
+                opacity: .98;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,36 @@
+@import "../../styles/variables.scss";
+.container{
+    border: 1px solid $color-grey-light-2;
+    border-radius: 10px;
+    // padding: 10px;
+    flex: 5;
+
+    .header{
+        padding: 10px;
+        .top{
+            width: max-content;
+
+            .title{
+                font-size: 3.2rem;
+            }
+            .hr1{
+                width: 100%;
+                height: 2px;
+                border: 0;
+                border-top: 1px solid $color-grey-light-1;
+            }
+            .hr2{
+                width: 100%;
+                height: 5px;
+                border: 0;
+                border-top: 3px solid $color-grey-light-1;
+                margin-bottom: 50px;
+            }
+        }
+        
+    }
+
+    .pagination{
+        padding: 20px;
+    }
+}
