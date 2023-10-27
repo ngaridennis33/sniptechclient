@@ -10,13 +10,13 @@ import { app } from '@/utils/firebase';
 import dynamic from 'next/dynamic';
 
 // Import react-quill styles
-import 'react-quill/dist/quill.snow.css';
+// import 'react-quill/dist/quill.snow.css';
 
-// Dynamic import of Quill to avoid SSR issues
-const QuillNoSSRWrapper = dynamic(() => import('react-quill'), {
-  ssr: false,
-  loading: () => <p>Loading...</p>,
-});
+// // Dynamic import of Quill to avoid SSR issues
+// const QuillNoSSRWrapper = dynamic(() => import('react-quill'), {
+//   ssr: false,
+//   loading: () => <p>Loading...</p>,
+// });
 
 const storage = getStorage(app);
 
