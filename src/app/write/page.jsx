@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import styles from './page.module.scss';
 import Image from 'next/image';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+// import { useSession } from 'next-auth/react';
+// import { useRouter } from 'next/navigation';
 import Spinner from '@/components/spinner/spinner';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { app } from '@/utils/firebase';
@@ -21,8 +21,8 @@ const QuillNoSSRWrapper = dynamic(() => import('react-quill'), {
 const storage = getStorage(app);
 
 const WritePage = () => {
-  const router = useRouter();
-  const { status } = useSession();
+  // const router = useRouter();
+  // const { status } = useSession();
 
   const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
@@ -39,6 +39,7 @@ const WritePage = () => {
       .replace(/\s+/g, '-')
       .replace(/-+/g, '-');
   };
+  console.log(status)
 
   const handleSubmit = async () => {
     const res = await fetch('/api/posts', {
@@ -79,13 +80,13 @@ const WritePage = () => {
     file && upload();
   }, [file]);
 
-  if (status === 'loading') {
-    return (
-      <div className={styles.loading}>
-        <Spinner />
-      </div>
-    );
-  }
+  // if (status === 'loading') {
+  //   return (
+  //     <div className={styles.loading}>
+  //       <Spinner />
+  //     </div>
+  //   );
+  // }
 
   // if (status === 'unauthenticated') {
   //   return router.push('/');
