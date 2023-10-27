@@ -11,14 +11,14 @@ const AuthLinks = ({openModal}) => {
 
   const {handleHamburgerClose} = useContext(HamburgerContext);
 
-    // Check User login status
-    const {data,status} = useSession()
+// Check User login status
+const { data = null, status = null } = useSession();
 
   return(
   <div className={styles.authStatusCont}>
     {status === "authenticated" ? (
     <div className={styles.authCont}>
-        {/* <Link href = "/write" className={styles.write}>Write</Link>  */}
+        <Link href = "/write" className={styles.write}>Write</Link> 
         <span className={styles.logout} onClick={signOut}>Logout</span>
     </div>
     ): (
