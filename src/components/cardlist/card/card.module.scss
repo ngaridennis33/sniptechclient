@@ -16,7 +16,7 @@
                 height: 250px;
                 position: relative;
         
-                @include respond(tablet){ 
+                @include respond(phone){ 
                     display: none;
                   }
         
@@ -83,6 +83,10 @@
                     -webkit-box-orient: vertical;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    max-width: 500px;
+                    @include respond(phone){ 
+                        max-width: 400px;
+                      }
                 }
         
             }

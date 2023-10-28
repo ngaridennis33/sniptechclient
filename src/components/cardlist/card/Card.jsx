@@ -21,7 +21,7 @@ const Card = ({key, item}) => {
                 <Link href={`/posts/${item.slug}`}>
                 <h1 className={styles.title}>{item.title}</h1>
                 </Link>
-                <p className={styles.desc}>{item.desc}</p>
+                <div className={styles.desc} dangerouslySetInnerHTML={{__html:item?.desc}} />
                 <Link className={styles.authLink} href={`/posts/${item.slug}`}><button className={styles.readmoreLink}> Read More...</button></Link>
             </div>
             {item?.img && <div className={styles.imageContainer}>

@@ -6,7 +6,6 @@
     display: flex;
     gap: 20px;
 
-
     .container{
     flex: 5;
     border: 1px $color-grey-light-2 solid;
@@ -69,14 +68,14 @@
             height: 35rem;
             position: relative;
 
-            @include respond(tablet){ //width < 900px
-                display: none; //1rem = 8px, 8/16 = 50%
+            @include respond(tablet){
+                display: none; 
               }
 
             .image{
                 top: 0;
                 border-radius: 0 10px 0 0;
-                object-fit:scale-down;
+                object-fit:contain;
             }
         }
     }

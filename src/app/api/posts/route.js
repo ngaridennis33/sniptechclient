@@ -17,6 +17,7 @@ export const GET = async (req) => {
     where: {
       ...(cat && { catSlug: cat }),
     },
+    orderBy: [{ createdAt: "desc" }],
     include: {
       user: true, // Include the user field in the response
     },
