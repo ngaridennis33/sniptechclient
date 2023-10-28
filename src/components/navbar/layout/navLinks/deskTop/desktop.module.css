@@ -23,6 +23,7 @@
     height: 100%;
     font-size: 2rem;
     font-weight: 300;
+    /* background-color: red; */
 }
 .dropDownCont{
     width: 100%;
@@ -100,8 +101,14 @@
     visibility: visible;
 }
 
+.dropDownIcon{
+    transition: .3s ease;
+    fill: currentColor; 
+}
+
 .navMenuItem:hover .dropDownIcon{
     transform: rotate(180deg);
+    fill: green;
 }
 
 @media only screen and (max-width:1080px){

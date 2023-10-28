@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import styles from "./navbar.module.scss"
 import DarkmodeToogle from '../DarkmodeToggle/DarkmodeToogle'
 import Logo from './layout/logo/Logo'

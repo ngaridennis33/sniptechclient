@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
 import styles from "./desktop.module.css"
-import KeyboardArrowDownSharpIcon from '@mui/icons-material/KeyboardArrowDownSharp';
 
 
 const DesktopLinks = ({mode}) => {
@@ -28,7 +27,7 @@ const DesktopLinks = ({mode}) => {
             <li className={navMenuItem}>
                 <div className={styles.dropDownCont}>
                     <span className={styles.navMenuItemLink}>About</span>
-                    <KeyboardArrowDownSharpIcon className={styles.dropDownIcon}/>
+                    <svg className={styles.dropDownIcon} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
                  </div>
                 
                 
