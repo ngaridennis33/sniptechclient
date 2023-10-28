@@ -11,22 +11,22 @@ const Announcement = () => {
            <span className={styles.title}>Categories</span> 
             <div className={styles.dropMenu}>
                 <ul className={styles.dropMenuItem}>
-                <Link href={"/categorypage?cat=tech"} className={styles.dropMenuItemLink}>
+                <Link href={"/blog/categorypage?cat=tech"} className={styles.dropMenuItemLink}>
                   <Image src="/net1.svg" width={20} height={20} className={styles.img} alt=""/> <span className={styles.catName}>Tech</span>
                 </Link>
-                <Link href={"/about"} className={styles.dropMenuItemLink}>
+                <Link href={"/blog/categorypage?cat=fashion"} className={styles.dropMenuItemLink}>
                   <Image src="/fashion1.svg" width={20} height={20} className={styles.img} alt=""/> <span className={styles.catName}>Fashion</span>
                 </Link>
-                <Link href={"/about"} className={styles.dropMenuItemLink}>
+                <Link href={"/blog/categorypage?cat=finance"}  className={styles.dropMenuItemLink}>
                   <Image src="/finance1.svg" width={20} height={20} className={styles.img} alt=""/> <span className={styles.catName}>Finance</span>
                 </Link>
-                <Link href={"/about"} className={styles.dropMenuItemLink}>
+                <Link href={"/blog/categorypage?cat=travel"}  className={styles.dropMenuItemLink}>
                   <Image src="/bag.svg" width={20} height={20} className={styles.img} alt=""/> <span className={styles.catName}>Travel</span>
                 </Link>
-                <Link href={"/about"} className={styles.dropMenuItemLink}>
+                <Link href={"/blog/categorypage?cat=sports"} className={styles.dropMenuItemLink}>
                   <Image src="/sports1.svg" width={20} height={20} className={styles.img} alt=""/> <span className={styles.catName}>Sports</span>
                 </Link>
-                <Link href={"/about"} className={styles.dropMenuItemLink}>
+                <Link href={"/blog/categorypage?cat=art"}  className={styles.dropMenuItemLink}>
                   <Image src="/art1.svg" width={20} height={20} className={styles.img} alt=""/><span className={styles.catName}>Art</span>
                 </Link>
                 </ul>
