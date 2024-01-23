@@ -4,13 +4,13 @@ import styles from './page.module.scss';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import Spinner from '@/components/spinner/spinner';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { app } from '@/utils/firebase';
 import dynamic from 'next/dynamic';
 
 // Import react-quill styles
 import 'react-quill/dist/quill.snow.css';
+import Spinner from '@/components/loading/spinner/spinner';
 
 // Dynamic import of Quill to avoid SSR issues
 const QuillNoSSRWrapper = dynamic(() => import('react-quill'), {

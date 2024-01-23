@@ -5,8 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import useSWR from "swr"
 import { useSession } from 'next-auth/react';
-import Spinner from '../spinner/spinner';
 import { ModalContext } from '../context/ModalContext';
+import BounceWave from '../loading/bouncingBars/BounceWave';
 
 // Fetch all Comments from the db
 const fetcher = async (url) => {
@@ -50,7 +50,7 @@ const {openModal} = useContext(ModalContext);
      <div className={styles.comments} >
 
      {isLoading ? (
-    <Spinner />
+    <BounceWave />
   ) : data?.length > 0 ? (
     data.map((item) => (
       <div className={styles.comment} key={item.id}>

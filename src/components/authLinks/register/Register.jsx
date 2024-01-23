@@ -6,6 +6,8 @@ import Image from 'next/image';
 import LogoImg from "/public/sniptech-logos_transparent.png"
 import { ThemeContext } from '@/components/context/ThemeContext';
 
+
+
 const Register = ({openModal}) => {
 
     const {mode} = useContext(ThemeContext);
@@ -32,17 +34,6 @@ const Register = ({openModal}) => {
   
       // User Input Data.
       const InputData=[
-    //     {
-    //     id:1,
-    //     name:"userName",
-    //     type:"text",
-    //     placeholder:"UserName",
-    //     errorMessage:"⁕ UserName should be 3-16 characters and shouldn't include any special characters!",
-    //     label:"UserName",
-    //     pattern:"^[A-Za-z0-9]{3,16}$",
-    //     required:true,
-  
-    // },
     {
         id:1,
         name:"email",

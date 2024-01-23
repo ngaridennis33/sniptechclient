@@ -22,7 +22,7 @@ const Mobile = ({mode}) => {
 
   return (
     <>
-      {navLinkData.map(({link, label,tree,icon},index) => {
+      {navLinkData.map(({link, label,tree},index) => {
       const isopen = openDropDown === label;
       
           return(

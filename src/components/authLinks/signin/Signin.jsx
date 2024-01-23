@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { ThemeContext } from '../../../components/context/ThemeContext'
 import LogoImg from "/public/sniptech-logos_transparent.png"
 import { signIn, useSession } from 'next-auth/react'
-import Spinner from '@/components/spinner/spinner'
 import { useRouter } from 'next/router'
 
 const SignIn = ({openModal}) => {

@@ -3,6 +3,7 @@ import styles from "./page.module.scss";
 import Menu from '@/components/menu/Menu';
 import Image from 'next/image';
 import Comments from '@/components/comments/Comments';
+import CirclePulse from '@/components/loading/circlePulse/CirclePulse';
 
 
   // Get the Single post
